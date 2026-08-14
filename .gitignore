@@ -2,6 +2,7 @@ node_modules/
 .npm-cache/
 .smoke-runtime/
 .packaged-smoke-localapp/
+.electron-dist/
 dist/
 logs/
 *.log

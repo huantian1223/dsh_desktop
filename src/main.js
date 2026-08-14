@@ -11,9 +11,11 @@ const {
 } = require('electron');
 const { HarnessService } = require('./service-manager');
 const { RuntimeManager } = require('./runtime-manager');
+const { ensureWindowsShortcuts } = require('./windows-integration');
 
 const PORT = 3080;
 const UI_URL = `http://127.0.0.1:${PORT}`;
+const APP_ID = 'com.deepseek.harness.desktop.shell';
 
 let mainWindow;
 let tray;
@@ -52,11 +54,20 @@ app.on('before-quit', (event) => {
 });
 
 async function boot() {
-  app.setAppUserModelId('com.deepseek.harness.desktop.shell');
+  app.setAppUserModelId(APP_ID);
   const desktopRoot = app.getAppPath();
   const iconPath = path.join(desktopRoot, 'assets', 'app.ico');
   const managedRoot = path.join(process.env.LOCALAPPDATA || app.getPath('appData'), 'dsh_desktop');
   const logRoot = path.join(managedRoot, 'logs');
+
+  if (app.isPackaged && process.platform === 'win32') {
+    ensureWindowsShortcuts({
+      shell,
+      appDataPath: app.getPath('appData'),
+      executablePath: process.env.PORTABLE_EXECUTABLE_FILE || process.execPath,
+      appId: APP_ID,
+    });
+  }
 
   createWindow(iconPath);
   createTray(iconPath);
@@ -121,7 +132,7 @@ function createWindow(iconPath) {
   mainWindow.on('close', (event) => {
     if (quitting) return;
     event.preventDefault();
-    mainWindow.hide();
+    mainWindow.minimize();
   });
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
