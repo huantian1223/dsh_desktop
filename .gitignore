@@ -1,0 +1,10 @@
+node_modules/
+.npm-cache/
+.smoke-runtime/
+.packaged-smoke-localapp/
+dist/
+logs/
+*.log
+*.exe
+.DS_Store
+Thumbs.db

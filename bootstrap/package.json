@@ -1,0 +1,10 @@
+{
+  "name": "dsh-desktop-managed-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pinned official DeepSeek Harness runtime for dsh_desktop.",
+  "license": "MIT",
+  "dependencies": {
+    "@deepseek-ai/dsh": "0.1.0-rc.6"
+  }
+}
