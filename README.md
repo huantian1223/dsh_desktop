@@ -2,15 +2,25 @@
 
 [中文](README.md) | [English](README_EN.md)
 
-面向 Windows 的 DeepSeek Harness 社区桌面壳。下载一个 EXE 后双击运行；如果电脑上没有 Harness，首次启动会自动准备所需环境。
+面向 Windows 的 DeepSeek Harness 社区桌面壳，提供推荐的标准安装版和免安装便携版。如果电脑上没有 Harness，首次启动会自动准备所需环境。
 
 > 非官方社区项目，与 DeepSeek 无隶属、赞助或背书关系。DeepSeek Harness 当前仍处于 developer preview，后续版本可能产生不兼容变化。
 
+## 下载选择
+
+| 文件 | 适用场景 | 窗口隐藏后的重新打开方式 |
+| --- | --- | --- |
+| `DeepSeek Harness Desktop Setup.exe` | **推荐**。安装后提供桌面和开始菜单快捷方式，可固定到任务栏 | 点击任务栏固定图标或系统托盘图标 |
+| `DeepSeek Harness Desktop Portable.exe` | 免安装，可以放在任意目录运行 | 程序已在后台运行时，请点击系统托盘图标 |
+
+标准安装版只需安装一次。之后从桌面、开始菜单或已固定的任务栏图标启动；也可以在 Windows“已安装的应用”中正常卸载。卸载程序默认保留 `%LOCALAPPDATA%\dsh_desktop` 中的 Harness 环境和个人数据。
+
 ## 使用方法
 
-1. 从 GitHub Releases 下载 `DeepSeek Harness Desktop.exe`。
-2. 双击运行。首次启动需要联网，并可能耗时数分钟。
-3. 点击窗口关闭按钮后，窗口会隐藏到系统托盘并从任务栏消失；单击托盘图标可重新打开，右键托盘图标选择“退出”可同时关闭桌面壳及其启动的 Harness。
+1. 从 GitHub Releases 下载标准安装版或便携版；普通用户推荐选择 `Setup.exe`。
+2. 双击运行。标准版会自动安装，便携版会直接启动；首次启动需要联网，并可能耗时数分钟。
+3. 点击窗口关闭按钮后，窗口会隐藏到系统托盘并从任务栏消失；标准安装版可通过任务栏固定图标或托盘图标重新打开，便携版请通过托盘图标重新打开。
+4. 右键托盘图标选择“退出”，可同时关闭桌面壳及其启动的 Harness。
 
 无需预先安装 Node.js。首次运行会：
 
@@ -50,7 +60,14 @@ npm test
 npm run dist
 ```
 
-生成的便携版位于 `dist\DeepSeek Harness Desktop.exe`。源码仓库不提交 `node_modules`、日志、缓存、个人数据或 EXE；可执行文件应作为 GitHub Release 附件发布。
+构建后会生成：
+
+```text
+dist\DeepSeek Harness Desktop Setup.exe
+dist\DeepSeek Harness Desktop Portable.exe
+```
+
+源码仓库不提交 `node_modules`、日志、缓存、个人数据或 EXE；可执行文件应作为 GitHub Release 附件发布。
 
 ## 安全说明
 

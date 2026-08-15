@@ -2,15 +2,25 @@
 
 [中文](README.md) | [English](README_EN.md)
 
-A community-built DeepSeek Harness desktop wrapper for Windows. Download a single EXE and run it directly. If Harness is not already available on the computer, the app prepares the required environment automatically on first launch.
+A community-built DeepSeek Harness desktop wrapper for Windows, available as a recommended standard installer and a no-install portable build. If Harness is not already available on the computer, the app prepares the required environment automatically on first launch.
 
 > This is an unofficial community project. It is not affiliated with, sponsored by, or endorsed by DeepSeek. DeepSeek Harness is currently a developer preview and future releases may introduce breaking changes.
 
+## Download options
+
+| File | Best for | Reopening after the window is hidden |
+| --- | --- | --- |
+| `DeepSeek Harness Desktop Setup.exe` | **Recommended.** Installs desktop and Start menu shortcuts and can be pinned to the taskbar | Click the pinned taskbar icon or the system tray icon |
+| `DeepSeek Harness Desktop Portable.exe` | No installation; runs from any directory | While it is already running in the background, click the system tray icon |
+
+The standard build needs to be installed only once. You can then launch it from the desktop, Start menu, or a pinned taskbar icon, and uninstall it normally from Windows Installed apps. Uninstalling the application keeps the Harness environment and personal data under `%LOCALAPPDATA%\dsh_desktop` by default.
+
 ## Usage
 
-1. Download `DeepSeek Harness Desktop.exe` from GitHub Releases.
-2. Double-click the EXE. The first launch requires an internet connection and may take several minutes.
-3. Clicking the window's close button hides the window to the system tray and removes it from the taskbar. Click the tray icon to reopen it, or right-click the tray icon and select **Exit** to close both the desktop wrapper and the Harness process it started.
+1. Download either build from GitHub Releases. The `Setup.exe` build is recommended for most users.
+2. Double-click the file. The standard build installs automatically, while the portable build starts directly. The first launch requires an internet connection and may take several minutes.
+3. Clicking the window's close button hides the window to the system tray and removes it from the taskbar. Reopen the standard build from its pinned taskbar icon or tray icon; reopen the portable build from its tray icon.
+4. Right-click the tray icon and select **Exit** to close both the desktop wrapper and the Harness process it started.
 
 You do not need to install Node.js beforehand. On first launch, the app will:
 
@@ -50,7 +60,14 @@ npm test
 npm run dist
 ```
 
-The portable executable is generated at `dist\DeepSeek Harness Desktop.exe`. The source repository does not commit `node_modules`, logs, caches, personal data, or EXE files. Executables should be published as GitHub Release assets.
+The build produces:
+
+```text
+dist\DeepSeek Harness Desktop Setup.exe
+dist\DeepSeek Harness Desktop Portable.exe
+```
+
+The source repository does not commit `node_modules`, logs, caches, personal data, or EXE files. Executables should be published as GitHub Release assets.
 
 ## Security notes
 
