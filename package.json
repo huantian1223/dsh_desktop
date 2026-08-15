@@ -10,7 +10,7 @@
     "start": "electron .",
     "check": "node --check src/main.js && node --check src/service-manager.js && node --check src/runtime-manager.js && node --check src/windows-integration.js && node --check scripts/smoke-managed-runtime.js && node --check scripts/smoke-managed-service.js",
     "test": "node --test test/*.test.js",
-    "dist": "electron-builder --win --x64"
+    "dist": "electron-builder --win --x64 --publish never"
   },
   "devDependencies": {
     "electron": "43.4.0",
