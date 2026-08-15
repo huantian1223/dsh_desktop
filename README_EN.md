@@ -10,7 +10,7 @@ A community-built DeepSeek Harness desktop wrapper for Windows. Download a singl
 
 1. Download `DeepSeek Harness Desktop.exe` from GitHub Releases.
 2. Double-click the EXE. The first launch requires an internet connection and may take several minutes.
-3. Clicking the window's close button minimizes the app and keeps it available in both the taskbar and system tray. Click either icon to reopen it, or right-click the tray icon and select **Exit** to close both the desktop wrapper and the Harness process it started.
+3. Clicking the window's close button hides the window to the system tray and removes it from the taskbar. Click the tray icon to reopen it, or right-click the tray icon and select **Exit** to close both the desktop wrapper and the Harness process it started.
 
 You do not need to install Node.js beforehand. On first launch, the app will:
 

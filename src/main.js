@@ -132,7 +132,7 @@ function createWindow(iconPath) {
   mainWindow.on('close', (event) => {
     if (quitting) return;
     event.preventDefault();
-    mainWindow.minimize();
+    mainWindow.hide();
   });
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
